@@ -5,9 +5,12 @@
 
 #include <Adafruit_NeoPixel.h>
 
-char auth[] = "m56CHTQx61WBEzONBWUlejezZLG3hLnH";
-char ssid[] = "SUPERONLINE_WiFi_6054";
-char pass[] = "UJMURKKPRHAU";
+#define LED_NUMBER 8
+#define LED_PIN 2
+
+char auth[] = "auth";
+char ssid[] = "ssid";
+char pass[] = "pass";
 
 
 int rainbow_loop = 0;
@@ -15,7 +18,7 @@ int zebra_loop = 0;
 int theater_loop = 0;
 int timer_1 = 0;
 
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(24, 2, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(LED_NUMBER, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 uint32_t Wheel(byte WheelPos) {
   if (WheelPos < 85) {
@@ -145,6 +148,4 @@ void engineFire() {
   strip.setPixelColor(1, strip.Color(255,255,120));
   strip.setPixelColor(0, strip.Color(255,255,120));
   strip.show();
-
-
 }
